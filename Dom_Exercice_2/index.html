@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+    <body>
+        <div class="wrapper">
+            <h1>Ubeda Kevin challenges in <span id="number">2023</span></h1>
+            <h2>30DaysOfJavaScript Challenge</h2>
+            <ul>
+                
+                <li>30DaysOfJavaScript Challenge Ongoing</li>
+				<li>30DaysOfPython Challenge Coming</li>
+                <li>30DaysOfReact Challenge Coming</li>
+                <li>30DaysOfFullStack Challenge Coming</li>
+                <li>30DaysOfDataAnalysis Challenge Coming</li>
+                <li>30DaysOfReactNative Challenge Coming</li>
+                <li>30DaysOfMachineLearning Challenge Coming</li>
+            </ul>
+        </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/main.js"></script>
+    <script>
+
+
+// Sélectionnez l'élément h1
+let  numberElt = document.getElementById("number");
+
+console.log(numberElt);
+
+numberElt.style.fontSize = "100px";
+function changeColorPeriodically() {
+    numberElt.style.color = getRandomHexColor();
+}
+
+// Appeler la fonction initiale pour changer la couleur
+changeColorPeriodically();
+// Utiliser setInterval pour changer la couleur périodiquement
+setInterval(changeColorPeriodically, 1000);
+
+function getRandomHexColor() {
+    // Génère trois composantes de couleur RVB (rouge, vert, bleu) aléatoires
+    const red = Math.floor(Math.random() * 256); // Valeur entre 0 et 255
+    const green = Math.floor(Math.random() * 256); // Valeur entre 0 et 255
+    const blue = Math.floor(Math.random() * 256); // Valeur entre 0 et 255
+
+    // Convertit les composantes RVB en une chaîne hexadécimale
+    const hexColor = `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+
+    return hexColor;
+}
+
+function genererDateAndTime(){
+
+const h2Element = document.querySelector('h2');
+const date = new Date();
+const annee = date.getFullYear();
+const mois = date.getMonth() + 1;
+const jour = date.getDate();
+const heures = date.getHours();
+const minutes = date.getMinutes();
+const secondes = date.getSeconds();
+const dateHeure = `${jour}/${mois}/${annee} ${heures}:${minutes}:${secondes}`;
+// Afficher la date et l'heure
+console.log("Date et heure actuelles : " + dateHeure);
+
+if (h2Element) {
+    // Créez un élément div
+    const divDate = document.createElement("div");
+
+    // Créez un élément p
+    const pElement = document.createElement("p");
+    pElement.style.fontSize = "20px";
+    pElement.style.textDecoration = "none";
+    pElement.style.margin = "0";
+    pElement.style.padding = "5px";
+    pElement.innerHTML = dateHeure;
+
+    divDate.appendChild(pElement);
+    h2Element.appendChild(divDate);
+    divDate.style.display = "flex";
+    divDate.style.justifyContent = "center";
+    
+
+
+    function changeColorPeriodically() {
+    divDate.style.background = getRandomHexColor();
+}
+
+// Appeler la fonction initiale pour changer la couleur
+changeColorPeriodically();
+// Utiliser setInterval pour changer la couleur périodiquement
+setInterval(changeColorPeriodically, 1000);
+ }
+}
+
+genererDateAndTime();
+
+
+
+
+const liElt = document.getElementsByTagName("li");
+
+const done = "Done";
+const ongoing = "Ongoing";
+const coming = "Coming";
+
+for (let i = 0; i < liElt.length; i++) {
+    const liText = liElt[i].textContent;
+
+    if (liText.includes(done)) {
+        liElt[i].style.backgroundColor = "#5BBC7A"; // Vert
+    } else if (liText.includes(coming)) {
+        liElt[i].style.backgroundColor = "#F7DC5C"; // Or
+    } else {
+        liElt[i].style.backgroundColor = "#EB695B"; // Rouge
+    }
+}
+
+    </script>
+
+</body>
+</html>
